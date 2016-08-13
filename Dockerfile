@@ -1,11 +1,8 @@
-FROM python:2.7
+FROM python:2.7-slim
 MAINTAINER Hamilton Turner <hamiltont@gmail.com>
 
-# Need hg to download devcron
-RUN apt-get update && apt-get install -y mercurial
-
 # Yay devcron
-RUN pip install -e hg+https://bitbucket.org/dbenamy/devcron#egg=devcron
+RUN pip install https://bitbucket.org/dbenamy/devcron/get/tip.tar.gz
 
 # Setup defaults
 RUN mkdir /cron && \
